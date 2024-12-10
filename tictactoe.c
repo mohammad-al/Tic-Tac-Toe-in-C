@@ -99,12 +99,16 @@ void enterSingleplayerMode(char map[3][3]) {
 
 void singlePlayerLoopXStartFirst(char map[3][3], char *player) {
 
-	while (!isTie(map)) {
+	while (true) {
 
 		while (!getPlayerMove(map, player, 'X')) {
 			;
 		}
 		printGame(map);
+		if (isTie(map)) {
+			printf("This game has ended in a draw!\n");
+			return;
+		}
 
 		if (isWinner(map)) {
 			printf("Hey %s. You won!\n", player);
@@ -122,7 +126,6 @@ void singlePlayerLoopXStartFirst(char map[3][3], char *player) {
 			}
 		}
 	}
-	printf("This game has ended in a draw!\n");
 	
 }
 
@@ -135,6 +138,10 @@ void singlePlayerLoopXStartSecond(char map[3][3], char *player) {
 			printf("Comuter searching for a position\n");
 		}
 		printGame(map);
+		if (isTie(map)) {
+			printf("This game has ended in a draw!\n");
+			return;
+		}
 
 		if (isWinner(map)) {
 			printf("Unlucky, the computer won!\n");
@@ -164,6 +171,10 @@ void singlePlayerLoopOStartFirst(char map[3][3], char *player) {
 			;
 		}
 		printGame(map);
+		if (isTie(map)) {
+			printf("This game has ended in a draw!\n");
+			return;
+		}
 
 		if (isWinner(map)) {
 			printf("Hey %s. You won!\n", player);
@@ -196,6 +207,10 @@ void singlePlayerLoopOStartSecond(char map[3][3], char *player) {
 			printf("Comuter searching for a position\n");
 		}
 		printGame(map);
+		if (isTie(map)) {
+			printf("This game has ended in a draw!\n");
+			return;
+		}
 
 		if (isWinner(map)) {
 			printf("Unlucky, the computer won!\n");
@@ -254,6 +269,10 @@ void multiplayerLoopPlayer1StartFirst(
 			;
 		}
 		printGame(map);
+		if (isTie(map)) {
+			printf("This game has ended in a draw!\n");
+			return;
+		}
 
 		if (isWinner(map)) {
 			printf("Hey %s. You won!\n", player1);
@@ -285,6 +304,10 @@ void multiplayerLoopPlayer2StartFirst(
 			;
 		}
 		printGame(map);
+		if (isTie(map)) {
+			printf("This game has ended in a draw!\n");
+			return;
+		}
 
 		if (isWinner(map)) {
 			printf("Hey %s. You won!\n", player2);
