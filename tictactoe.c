@@ -82,12 +82,16 @@ void enterSingleplayerMode(char map[3][3]) {
 
 		printf("Game is starting!!!\n");
 		if (isX == 'y' && startFirst == 'y') {
+			printGame(map);
 	 		singlePlayerLoopXStartFirst(map, player);
 		} else if (isX == 'y' && startFirst == 'n') {
+			printGame(map);
 	 		singlePlayerLoopXStartSecond(map, player);
 		} else if (isX == 'n' && startFirst == 'y') {
+			printGame(map);
 	 		singlePlayerLoopOStartFirst(map, player);
 		} else {
+			printGame(map);
 	 		singlePlayerLoopOStartSecond(map, player);
 		}
 			
@@ -97,7 +101,6 @@ void singlePlayerLoopXStartFirst(char map[3][3], char *player) {
 
 	while (!isTie(map)) {
 
-		printGame(map);
 		while (!getPlayerMove(map, player, 'X')) {
 			;
 		}
@@ -126,8 +129,6 @@ void singlePlayerLoopXStartFirst(char map[3][3], char *player) {
 void singlePlayerLoopXStartSecond(char map[3][3], char *player) {
 
 	while (!isTie(map)) {
-
-		printGame(map);
 
 		while (!doCompMove(map, 'O')) {
 			;
@@ -158,7 +159,6 @@ void singlePlayerLoopOStartFirst(char map[3][3], char *player) {
 
 	while (!isTie(map)) {
 
-		printGame(map);
 		while (!getPlayerMove(map, player, 'O')) {
 			;
 		}
@@ -189,7 +189,6 @@ void singlePlayerLoopOStartSecond(char map[3][3], char *player) {
 
 	while (!isTie(map)) {
 
-		printGame(map);
 		while (!doCompMove(map, 'X')) {
 			;
 		}
@@ -234,8 +233,10 @@ void enterMultiplayerMode(char map[3][3]) {
 
 		if (player1StartFirst == 'y') {
 			printf("Game is starting!!!\n");
+			printGame(map);
 			multiplayerLoopPlayer1StartFirst(map, player1, player2);
 		} else {
+			printGame(map);
 			multiplayerLoopPlayer2StartFirst(map, player1, player2);
 		}
 }
@@ -245,8 +246,6 @@ void multiplayerLoopPlayer1StartFirst(
 	char *player2
 ) {
 	while (!isTie(map)) {
-
-		printGame(map);
 
 		while (!getPlayerMove(map, player1, 'X')) {
 			;
@@ -279,7 +278,6 @@ void multiplayerLoopPlayer2StartFirst(
 
 	while (!isTie(map)) {
 
-		printGame(map);
 		while (!getPlayerMove(map, player2, 'O')) {
 			;
 		}
