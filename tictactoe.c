@@ -130,8 +130,9 @@ void singlePlayerLoopXStartSecond(char map[3][3], char *player) {
 
 	while (!isTie(map)) {
 
+		printf("Computers turn\n");
 		while (!doCompMove(map, 'O')) {
-			;
+			printf("Comuter searching for a position\n");
 		}
 		printGame(map);
 
@@ -169,8 +170,9 @@ void singlePlayerLoopOStartFirst(char map[3][3], char *player) {
 			return;
 		} else {
 			
-			while (!doCompMove(map, 'X')) {
-				;
+			printf("Computers turn\n");
+			while (!doCompMove(map, 'O')) {
+				printf("Comuter searching for a position\n");
 			}
 			printGame(map);
 
@@ -189,8 +191,9 @@ void singlePlayerLoopOStartSecond(char map[3][3], char *player) {
 
 	while (!isTie(map)) {
 
-		while (!doCompMove(map, 'X')) {
-			;
+		printf("Computers turn\n");
+		while (!doCompMove(map, 'O')) {
+			printf("Comuter searching for a position\n");
 		}
 		printGame(map);
 
@@ -354,23 +357,23 @@ bool doCompMove(char map[3][3], char letter) {
 	compPos = (compPos % 9) + 1;
 	switch (compPos) {
 		case 1:
-			if (map[0][0] == ' ') {printf("Position is 1"); map[0][0] = letter; return true;}
+			if (map[0][0] == ' ') { map[0][0] = letter; return true;}
 		case 2:
-			if (map[0][1] == ' ') {printf("Position is 2"); map[0][1] = letter; return true;}
+			if (map[0][1] == ' ') { map[0][1] = letter; return true;}
 		case 3:
-			if (map[0][2] == ' ') {printf("Position is 3"); map[0][2] = letter; return true;}
+			if (map[0][2] == ' ') { map[0][2] = letter; return true;}
 		case 4:
-			if (map[1][0] == ' ') {printf("Position is 4"); map[1][0] = letter; return true;}
+			if (map[1][0] == ' ') { map[1][0] = letter; return true;}
 		case 5:
-			if (map[1][1] == ' ') {printf("Position is 5"); map[1][1] = letter; return true;}
+			if (map[1][1] == ' ') { map[1][1] = letter; return true;}
 		case 6:
-			if (map[1][2] == ' ') {printf("Position is 6"); map[1][2] = letter; return true;}
+			if (map[1][2] == ' ') { map[1][2] = letter; return true;}
 		case 7:
-			if (map[2][0] == ' ') {printf("Position is 7"); map[2][0] = letter; return true;}
+			if (map[2][0] == ' ') { map[2][0] = letter; return true;}
 		case 8:
-			if (map[2][1] == ' ') {printf("Position is 8"); map[2][1] = letter; return true;}
+			if (map[2][1] == ' ') { map[2][1] = letter; return true;}
 		case 9: 
-			if (map[2][2] == ' ') {printf("Position is 9"); map[2][2] = letter; return true;}
+			if (map[2][2] == ' ') { map[2][2] = letter; return true;}
 	}
 	return false;
 }
